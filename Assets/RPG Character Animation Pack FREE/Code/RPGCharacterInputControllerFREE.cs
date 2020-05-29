@@ -28,19 +28,19 @@ namespace RPGCharacterAnims{
 		/// Input abstraction for easier asset updates using outside control schemes.
 		/// </summary>
 		void Inputs(){
-			inputJump = Input.GetButtonDown("Jump");
-            //inputLightHit = Input.GetButtonDown("LightHit");
-            //inputDeath = Input.GetButtonDown("Death");
-            //inputAttackL = Input.GetButtonDown("AttackL");
-            //inputAttackR = Input.GetButtonDown("AttackR");
-            //inputSwitchUpDown = Input.GetButtonDown("SwitchUpDown");
-            //inputStrafe = Input.GetKey(KeyCode.LeftShift);
-            //inputAimVertical = Input.GetAxisRaw("AimVertical");
-            //inputAimHorizontal = Input.GetAxisRaw("AimHorizontal");
-            inputHorizontal = Input.GetAxisRaw("Horizontal");
-            inputVertical = Input.GetAxisRaw("Vertical");
-            //inputRoll = Input.GetButtonDown("L3");
-        }
+			//inputJump = Input.GetButtonDown("Jump");
+			//inputLightHit = Input.GetButtonDown("LightHit");
+			//inputDeath = Input.GetButtonDown("Death");
+			//inputAttackL = Input.GetButtonDown("AttackL");
+			//inputAttackR = Input.GetButtonDown("AttackR");
+			//inputSwitchUpDown = Input.GetButtonDown("SwitchUpDown");
+			//inputStrafe = Input.GetKey(KeyCode.LeftShift);
+			//inputAimVertical = Input.GetAxisRaw("AimVertical");
+			//inputAimHorizontal = Input.GetAxisRaw("AimHorizontal");
+			//inputHorizontal = Input.GetAxisRaw("Horizontal");
+			//inputVertical = Input.GetAxisRaw("Vertical");
+			//inputRoll = Input.GetButtonDown("L3");
+		}
 
 		void Awake(){
 			allowedInput = true;
