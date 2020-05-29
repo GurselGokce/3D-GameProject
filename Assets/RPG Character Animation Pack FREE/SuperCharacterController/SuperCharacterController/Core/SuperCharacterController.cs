@@ -119,7 +119,7 @@ public class SuperCharacterController : MonoBehaviour
     {
         collisionData = new List<SuperCollision>();
 
-        TemporaryLayerIndex = LayerMask.NameToLayer(TemporaryLayer);
+        //TemporaryLayerIndex = LayerMask.NameToLayer(TemporaryLayer);
 
         ignoredColliders = new List<Collider>();
         ignoredColliderStack = new List<IgnoredCollider>();
@@ -216,7 +216,7 @@ public class SuperCharacterController : MonoBehaviour
 
         transform.position += debugMove * deltaTime;
 
-        gameObject.SendMessage("SuperUpdate", SendMessageOptions.DontRequireReceiver);
+        gameObject.SendMessage("SuperUpdate", SendMessageOptions.RequireReceiver);
 
         collisionData.Clear();
 
@@ -344,15 +344,15 @@ public class SuperCharacterController : MonoBehaviour
                 Vector3 position = SpherePosition(sphere);
                 Vector3 contactPoint;
                 bool contactPointSuccess = SuperCollider.ClosestPointOnSurface(col, position, radius, out contactPoint);
-                
+
                 if (!contactPointSuccess)
                 {
                     return;
                 }
-                                            
+
                 if (debugPushbackMesssages)
                     DebugDraw.DrawMarker(contactPoint, 2.0f, Color.cyan, 0.0f, false);
-                    
+
                 Vector3 v = contactPoint - position;
                 if (v != Vector3.zero)
                 {
@@ -366,7 +366,7 @@ public class SuperCharacterController : MonoBehaviour
 
                     col.gameObject.layer = layer;
 
-                    // Orient and scale our vector based on which side of the normal we are situated
+                    //Orient and scale our vector based on which side of the normal we are situated
                     if (facingNormal)
                     {
                         if (Vector3.Distance(position, contactPoint) < radius)
@@ -384,7 +384,7 @@ public class SuperCharacterController : MonoBehaviour
                         v = v.normalized * (radius + v.magnitude);
                     }
 
-                    contact = true;
+                    //contact = true;
 
                     transform.position += v;
 
@@ -402,7 +402,7 @@ public class SuperCharacterController : MonoBehaviour
                     if (superColType == null)
                         superColType = defaultCollisionType;
 
-                    // Our collision affected the collider; add it to the collision data
+                    //Our collision affected the collider; add it to the collision data
                     var collision = new SuperCollision()
                     {
                         collisionSphere = sphere,
@@ -440,11 +440,13 @@ public class SuperCharacterController : MonoBehaviour
     private void PushIgnoredColliders()
     {
         ignoredColliderStack.Clear();
+        //Debug.Log(ignoredColliders.Count);
 
         for (int i = 0; i < ignoredColliders.Count; i++)
         {
             Collider col = ignoredColliders[i];
             ignoredColliderStack.Add(new IgnoredCollider(col, col.gameObject.layer));
+            //Debug.Log(ignoredColliders.Count);
             col.gameObject.layer = TemporaryLayerIndex;
         }
     }
@@ -587,8 +589,13 @@ public class SuperCharacterController : MonoBehaviour
                 // By reducing the initial SphereCast's radius by Tolerance, our casted sphere no longer fits with
                 // our controller's shape. Reconstruct the sphere cast with the proper radius
                 SimulateSphereCast(hit.normal, out hit);
+                //Debug.Log("Ik ben hier");
 
-                primaryGround = new GroundHit(hit.point, hit.normal, hit.distance);
+                primaryGround = new GroundHit(hit.point, hit.normal, /*0*/hit.distance);
+
+                //Debug.Log(hit.point);
+                //Debug.Log(hit.normal);
+                //Debug.Log(hit.distance);
 
                 // If we are standing on a perfectly flat surface, we cannot be either on an edge,
                 // On a slope or stepping off a ledge
@@ -703,6 +710,8 @@ public class SuperCharacterController : MonoBehaviour
             }
             else
             {
+                Debug.LogError(primaryGround);
+
                 Debug.LogError("[SuperCharacterComponent]: No ground was found below the player; player has escaped level");
             }
         }
