@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
     public LayerMask movementMask;
     Camera cam;
     PlayerMove move;
+    public Interact focus;
     // Start is called before the first frame update
     void Start() {
         cam = Camera.main;
@@ -29,11 +30,54 @@ public class PlayerController : MonoBehaviour {
                 //Move player to what hits
 
                 //Stop focusing object
+                RemoveFocus();
 
             
             }
         }
-    
-        
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, 100))
+            {
+                //move.Move(hit.point);
+                Interact interact = hit.collider.GetComponent<Interact>();
+                if(interact != null)
+                {
+                    SetFocus(interact);
+                }
+            }
+        }
+
+    }
+
+    void SetFocus(Interact newFocus)
+    {
+        if (newFocus != focus)
+        {
+            if (focus != null)
+            {
+                focus.OnDefocused();
+            }
+            focus = newFocus;
+            move.FollowTarget(newFocus);
+
+        }
+
+        newFocus.OnFocus(transform);
+
+    }
+
+    void RemoveFocus()
+    {
+        if (focus != null)
+        {
+            focus.OnDefocused();
+        }
+        focus = null;
+        move.StopFollowingTarget();
     }
 }
