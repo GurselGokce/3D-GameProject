@@ -131,7 +131,7 @@ PrefabInstance:
     - target: {fileID: 7334458471242895623, guid: 3c96afb6ed5ef4f4bbbb39bba5273a46,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 50.14
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7334458471242895623, guid: 3c96afb6ed5ef4f4bbbb39bba5273a46,
         type: 3}
@@ -328,6 +328,31 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &552836452 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5296640045931702323, guid: 1feebbad4a7dbae4182c1f111d61e47f,
+    type: 3}
+  m_PrefabInstance: {fileID: 6532095740475605241}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &552836453
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552836452}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 3f27a5aa7f5b86b41870fa4d6228e254, type: 3}
+  m_Controller: {fileID: 9100000, guid: feec086aaabebfa41af04bde5e257310, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,7 +767,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5804971794596489070, guid: 1feebbad4a7dbae4182c1f111d61e47f,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 552836453}
+    - target: {fileID: 8821588550553775601, guid: 1feebbad4a7dbae4182c1f111d61e47f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8821588550553775601, guid: 1feebbad4a7dbae4182c1f111d61e47f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1feebbad4a7dbae4182c1f111d61e47f, type: 3}
 --- !u!1001 &7594016313219446105
 PrefabInstance:
