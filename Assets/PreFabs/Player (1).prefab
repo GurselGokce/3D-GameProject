@@ -32,7 +32,7 @@ Transform:
   m_LocalPosition: {x: 39.9, y: 2.44, z: 10.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 5963751122300009394}
+  - {fileID: 6742833967421906268}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -103,6 +103,8 @@ MonoBehaviour:
   movementMask:
     serializedVersion: 2
     m_Bits: 256
+  focus: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!114 &8534727538674925939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3310d94777eb64c448c2f77eb49cc5b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &8853470973562365593
+--- !u!1001 &8470430019958800503
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -125,17 +127,17 @@ PrefabInstance:
     - target: {fileID: 2890845855507406123, guid: cfc82f8007c1d6048a3aba7fd8f274f4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 36.84
       objectReference: {fileID: 0}
     - target: {fileID: 2890845855507406123, guid: cfc82f8007c1d6048a3aba7fd8f274f4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.45
       objectReference: {fileID: 0}
     - target: {fileID: 2890845855507406123, guid: cfc82f8007c1d6048a3aba7fd8f274f4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 7.75
       objectReference: {fileID: 0}
     - target: {fileID: 2890845855507406123, guid: cfc82f8007c1d6048a3aba7fd8f274f4,
         type: 3}
@@ -184,9 +186,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfc82f8007c1d6048a3aba7fd8f274f4, type: 3}
---- !u!4 &5963751122300009394 stripped
+--- !u!4 &6742833967421906268 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2890845855507406123, guid: cfc82f8007c1d6048a3aba7fd8f274f4,
     type: 3}
-  m_PrefabInstance: {fileID: 8853470973562365593}
+  m_PrefabInstance: {fileID: 8470430019958800503}
   m_PrefabAsset: {fileID: 0}

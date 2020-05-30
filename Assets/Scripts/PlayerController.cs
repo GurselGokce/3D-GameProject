@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
     Camera cam;
     PlayerMove move;
     public Interact focus;
-    public Animator animator;
+    //public Animator animator;
     private float speed;
     // Start is called before the first frame update
     void Start() {
@@ -21,8 +21,8 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         transform.Translate(speed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, speed * Input.GetAxis("Vertical") * Time.deltaTime); ;
-        animator.SetFloat("verticale", Input.GetAxis("Vertical"));
-        animator.SetFloat("horizontale", Input.GetAxis("Horizontal"));
+        //animator.SetFloat("verticale", Input.GetAxis("Vertical"));
+        //animator.SetFloat("horizontale", Input.GetAxis("Horizontal"));
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
