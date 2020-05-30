@@ -3491,12 +3491,24 @@ Animator:
   m_Controller: {fileID: 9100000, guid: feec086aaabebfa41af04bde5e257310, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &552836454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552836452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1deba9d59c7699c4d9925e4d93646069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &566493081 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6891771136279641118, guid: cd5c05d0a6dcd444191a040edd56c61e,
@@ -14086,6 +14098,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6742833967421906268, guid: 1feebbad4a7dbae4182c1f111d61e47f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742833967421906268, guid: 1feebbad4a7dbae4182c1f111d61e47f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742833967421906268, guid: 1feebbad4a7dbae4182c1f111d61e47f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8084980308250046276, guid: 1feebbad4a7dbae4182c1f111d61e47f,
         type: 3}
       propertyPath: m_Height
@@ -14095,6 +14122,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Radius
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8084980308250046276, guid: 1feebbad4a7dbae4182c1f111d61e47f,
+        type: 3}
+      propertyPath: m_Speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447714706628578079, guid: 1feebbad4a7dbae4182c1f111d61e47f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8821588550553775601, guid: 1feebbad4a7dbae4182c1f111d61e47f,
         type: 3}
