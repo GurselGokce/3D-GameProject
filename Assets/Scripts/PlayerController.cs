@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
     public Interact focus;
 
 
-    public Animator animator;
+    Animator animator;
     private float speed;
 
 
@@ -27,32 +27,35 @@ public class PlayerController : MonoBehaviour {
         cam = Camera.main;
         move = GetComponent<PlayerMove>();
         //speed = 1f;
-
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update() {
-        transform.Translate(speed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, speed * Input.GetAxis("Vertical") * Time.deltaTime);
-        animator.SetFloat("verticale", Input.GetAxis("Vertical"));
-        animator.SetFloat("horizontale", Input.GetAxis("Horizontal"));
+        //transform.Translate(speed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, speed * Input.GetAxis("Vertical") * Time.deltaTime);
+        
+        //animator.SetFloat("horizontale", Input.GetAxis("Horizontal"));
 
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.z = Input.GetAxisRaw("Vertical");
-
+        animator.SetFloat("verticale", Input.GetAxis("Vertical"));
+        animator.SetInteger("condition", (int)Input.GetAxis("Vertical"));
+        animator.SetInteger("condition2", (int)Input.GetAxis("Horizontal"));
+        animator.SetFloat("horizontale", Input.GetAxis("Horizontal"));
         //mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        Plane playerPlane = new Plane(Vector3.up, rb.position);
-        Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
-        float hitDist = 0.0f;
+        //Plane playerPlane = new Plane(Vector3.up, rb.position);
+        //Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //float hitDist = 0.0f;
 
-        if (playerPlane.Raycast(r, out hitDist)) //Player looking (rotating) at Mouse
-        {
-            Vector3 targetPoint = r.GetPoint(hitDist);
-            Quaternion targetRotation = Quaternion.LookRotation(targetPoint - rb.position);
-            targetRotation.x = 0;
-            targetRotation.z = 0;
-            rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, 7f * Time.deltaTime);
-        }
+        //if (playerPlane.Raycast(r, out hitDist)) //Player looking (rotating) at Mouse
+        //{
+        //    Vector3 targetPoint = r.GetPoint(hitDist);
+        //    Quaternion targetRotation = Quaternion.LookRotation(targetPoint - rb.position);
+        //    targetRotation.x = 0;
+        //    targetRotation.z = 0;
+        //    rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, 7f * Time.deltaTime);
+        //}
 
 
         //Movement with mouse key
@@ -70,7 +73,7 @@ public class PlayerController : MonoBehaviour {
         //        //Stop focusing object
         //        RemoveFocus();
 
-            
+
         //    }
         //}
 
