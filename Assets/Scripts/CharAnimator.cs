@@ -19,7 +19,7 @@ public class CharAnimator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float speedPer = agent.velocity.magnitude / agent.speed;
-        animator.SetFloat("speedPer", speedPer, motionSmoothTime, Time.deltaTime);
+        //float speedPer = agent.velocity.magnitude / agent.speed;
+        //animator.SetFloat("speedPer", speedPer, motionSmoothTime, Time.deltaTime);
     }
 }

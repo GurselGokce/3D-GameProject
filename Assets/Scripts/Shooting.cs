@@ -11,8 +11,9 @@ public class Shooting : MonoBehaviour
     public float shootDelay = 0.5f;
     float M_LastPressTime;
     bool shoot = true;
+    public AudioSource shootSFX;
 
-    public float bulletForce = 20f;
+    //public float bulletForce = 20f;
 
 
     // Update is called once per frame
@@ -21,9 +22,8 @@ public class Shooting : MonoBehaviour
         if (Input.GetButton("Fire1") && shoot)
         {
             Shoot();
+            shootSFX.Play();
         }
-
-
 
     }
 
@@ -39,7 +39,7 @@ public class Shooting : MonoBehaviour
 
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
-        rb.AddForce(firePoint.forward * bulletForce, ForceMode.Impulse);
+        //rb.AddForce(firePoint.forward * bulletForce, ForceMode.Impulse);
         shoot = false;
         StartCoroutine(ShootDelay());
 
