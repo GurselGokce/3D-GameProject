@@ -115,11 +115,11 @@ public class PlayerController : MonoBehaviour {
                 focus.OnDefocused();
             }
             focus = newFocus;
-            move.FollowTarget(newFocus);
+            //move.FollowTarget(newFocus);
 
         }
 
-        newFocus.OnFocus(transform);
+        newFocus.OnFocus(transform/*rb*/);
 
     }
 

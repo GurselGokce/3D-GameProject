@@ -6,6 +6,7 @@ public class Interact : MonoBehaviour
     bool interacted = false;
     public float radius = 3f;
     Transform player;
+    //Rigidbody player;
 
     public Transform InteractionTransform;
 
@@ -29,10 +30,11 @@ public class Interact : MonoBehaviour
         }
     }
 
-    public void OnFocus(Transform playerTransform)
+    public void OnFocus(/*Rigidbody playerRb*/Transform playerTransform)
     {
         focus = true;
         player = playerTransform;
+        //player = playerRb;
         interacted = false;
     }
 
