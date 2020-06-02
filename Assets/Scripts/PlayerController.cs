@@ -10,9 +10,9 @@ public class PlayerController : MonoBehaviour {
     PlayerMove move;
     public Interact focus;
 
-    
-    //public Animator animator;
-    //private float speed;
+
+    public Animator animator;
+    private float speed;
 
 
     //Topdown Shooting
@@ -32,9 +32,9 @@ public class PlayerController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        //transform.Translate(speed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, speed * Input.GetAxis("Vertical") * Time.deltaTime);
-        //animator.SetFloat("verticale", Input.GetAxis("Vertical"));
-        //animator.SetFloat("horizontale", Input.GetAxis("Horizontal"));
+        transform.Translate(speed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, speed * Input.GetAxis("Vertical") * Time.deltaTime);
+        animator.SetFloat("verticale", Input.GetAxis("Vertical"));
+        animator.SetFloat("horizontale", Input.GetAxis("Horizontal"));
 
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.z = Input.GetAxisRaw("Vertical");
