@@ -8,6 +8,7 @@ public class PlayerMove : MonoBehaviour {
 
     NavMeshAgent agent;
     Transform target;
+    public Rigidbody rb;
 
     // Start is called before the first frame update
     void Start() {
@@ -48,8 +49,8 @@ public class PlayerMove : MonoBehaviour {
 
     void FaceTarget()
     {
-        Vector3 direction = (target.position - transform.position).normalized;
+        Vector3 direction = (target.position - rb.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0f, direction.z));
-        transform.rotation = lookRotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+        rb.rotation = lookRotation = Quaternion.Slerp(rb.rotation, lookRotation, Time.deltaTime * 5f);
     }
 }
