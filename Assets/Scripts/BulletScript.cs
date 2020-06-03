@@ -35,7 +35,13 @@ public class BulletScript : MonoBehaviour
             Debug.Log(hit.collider.gameObject.name);
             GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(effect, 0.5f); //Effect gaat weg na 5 seconde
-            Destroy(gameObject); //Bullets gaan weg na collisie
+
+            //Verander name naar tag
+            if(hit.collider.gameObject.tag != "Enemy") //Bullets only destroy when hitting other objects, making it possible to hit multiple enemies.
+            {
+                Destroy(gameObject);
+            }
+            //Destroy(gameObject); //Bullets gaan weg na collisie
 
         }
 
