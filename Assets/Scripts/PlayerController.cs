@@ -52,6 +52,18 @@ public class PlayerController : MonoBehaviour
         ));
         //movement.x = axisVector.x;
 
+        bool isShiftKeyDown = Input.GetKey(KeyCode.LeftShift);
+
+        if (isShiftKeyDown)
+        {
+            moveSpeed = 12f;
+        }
+
+        else{
+            moveSpeed = 8f;
+        }
+            
+
 
         
 
@@ -75,6 +87,8 @@ public class PlayerController : MonoBehaviour
             targetRotation.z = 0;
             rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, 7f * Time.deltaTime);
         }
+
+
 
         //UpdateAnimator();
         //Movement with mouse key

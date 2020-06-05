@@ -15381,7 +15381,7 @@ MonoBehaviour:
   firePoint: {fileID: 8126215368632328615}
   bulletPrefab: {fileID: 3862849210839578367, guid: a572ef57b9ac7f14fb1f454aca05b36f,
     type: 3}
-  shootDelay: 0.5
+  shootDelay: 0.05
   shootSFX: {fileID: 8126215368973680926}
 --- !u!82 &8126215368973680926
 AudioSource:
