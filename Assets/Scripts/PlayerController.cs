@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     //Topdown Shooting
     public float moveSpeed = 8f;
+    public float jumpHeight = 7f;
     public Rigidbody rb;
     Vector3 movement;
     Vector3 mousePos;
@@ -29,12 +30,14 @@ public class PlayerController : MonoBehaviour
     bool hasJumped = false;
 
 
+
     void Start()
     {
         cam = Camera.main;
         move = GetComponent<PlayerMove>();
         //speed = 1f;
         animator = GetComponent<Animator>();
+        //Cursor.visible = false;
 
     }
 
@@ -78,7 +81,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetButtonDown("Jump") && !isFalling && !hasJumped)
         {
-            rb.AddForce(new Vector3(0, 7, 0), ForceMode.Impulse);
+            rb.AddForce(new Vector3(0, jumpHeight, 0), ForceMode.Impulse);
         }
 
 
@@ -89,6 +92,10 @@ public class PlayerController : MonoBehaviour
         //animator.SetInteger("condition", (int)Input.GetAxis("Vertical"));
         //animator.SetInteger("condition2", (int)Input.GetAxis("Horizontal"));
         //animator.SetFloat("horizontale", Input.GetAxis("Horizontal"));
+
+        //LineRenderer lineRenderer = GetComponent<LineRenderer>();
+        //lineRenderer.useWorldSpace = false;
+        //lineRenderer.positionCount = 2;
 
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -103,6 +110,7 @@ public class PlayerController : MonoBehaviour
             targetRotation.x = 0;
             targetRotation.z = 0;
             rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, 7f * Time.deltaTime);
+            //lineRenderer.SetPosition(1, new Vector3(0, 0, hitDist));
         }
 
 
