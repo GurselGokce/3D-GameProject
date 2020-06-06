@@ -25,6 +25,9 @@ public class PlayerController : MonoBehaviour
 
     Vector3 targetPoint;
 
+    bool isFalling = false;
+    bool hasJumped = false;
+
 
     void Start()
     {
@@ -43,10 +46,9 @@ public class PlayerController : MonoBehaviour
         Input.GetAxis("Horizontal"),
         0, Input.GetAxis("Vertical"
         ));
-
         bool isShiftKeyDown = Input.GetKey(KeyCode.LeftShift);
 
-        if (isShiftKeyDown)
+        if ((isShiftKeyDown) && (!hasJumped) && (!isFalling))
         {
             moveSpeed = 12f;
         }
@@ -55,6 +57,32 @@ public class PlayerController : MonoBehaviour
         {
             moveSpeed = 8f;
         }
+
+
+        if (rb.velocity.y > 0.1)
+        {
+            hasJumped = true;
+        }
+        if (rb.velocity.y == 0.0)
+        {
+            hasJumped = false;
+        }
+        if (rb.velocity.y < -0.1)
+        {
+            isFalling = true;
+            
+        }
+        else
+        {
+            isFalling = false;
+        }
+        if (Input.GetButtonDown("Jump") && !isFalling && !hasJumped)
+        {
+            rb.AddForce(new Vector3(0, 7, 0), ForceMode.Impulse);
+        }
+
+
+
 
 
         //animator.SetFloat("verticale", Input.GetAxis("Vertical"));
