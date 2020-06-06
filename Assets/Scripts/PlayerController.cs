@@ -25,7 +25,6 @@ public class PlayerController : MonoBehaviour
 
     Vector3 targetPoint;
 
-    //
 
     void Start()
     {
@@ -33,24 +32,17 @@ public class PlayerController : MonoBehaviour
         move = GetComponent<PlayerMove>();
         //speed = 1f;
         animator = GetComponent<Animator>();
-        
+
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        //transform.Translate(speed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, speed * Input.GetAxis("Vertical") * Time.deltaTime);
-
-        //animator.SetFloat("horizontale", Input.GetAxis("Horizontal"));
-
-        //movement.x = Input.GetAxisRaw("Horizontal");
-        //movement.z = Input.GetAxisRaw("Vertical");
 
         axisVector = new Vector3(
         Input.GetAxis("Horizontal"),
         0, Input.GetAxis("Vertical"
         ));
-        //movement.x = axisVector.x;
 
         bool isShiftKeyDown = Input.GetKey(KeyCode.LeftShift);
 
@@ -59,13 +51,10 @@ public class PlayerController : MonoBehaviour
             moveSpeed = 12f;
         }
 
-        else{
+        else
+        {
             moveSpeed = 8f;
         }
-            
-
-
-        
 
 
         //animator.SetFloat("verticale", Input.GetAxis("Vertical"));
@@ -130,7 +119,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        
+
         rb.MovePosition(rb.position + axisVector * moveSpeed * Time.fixedDeltaTime);
         UpdateAnimator();
 
