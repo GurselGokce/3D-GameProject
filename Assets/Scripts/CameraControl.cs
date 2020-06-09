@@ -27,6 +27,8 @@ public class CameraControl : MonoBehaviour
 
     string[] NoGoTags = { "Player", "Floor", "Enemy", "Item"};
 
+    Vector3 oldLocation = new Vector3(0, 0, 0);
+
 
     //Vector3 dir;
     //private RaycastHit hitInfo;
@@ -62,6 +64,7 @@ public class CameraControl : MonoBehaviour
             {
                 Debug.Log(h.collider.GetComponent<Renderer>().material);
                 matts = h.collider.GetComponentInChildren<Renderer>().materials;
+                //oldLocation = target.transform.position;
                 for (var i = 0; i < h.collider.GetComponentInChildren<Renderer>().materials.Length; i++)
                 {
                     MaterialExtensions.ToFadeMode(h.collider.GetComponentInChildren<Renderer>().materials[i]);
@@ -70,7 +73,11 @@ public class CameraControl : MonoBehaviour
                     tempcolor.a = .15f;
                     h.collider.GetComponentInChildren<Renderer>().materials[i].color = tempcolor;
 
-                    StartCoroutine(ChangeBack(h.collider.GetComponentInChildren<Renderer>().materials[i], 2f));
+                    //if (target.transform.position != oldLocation) //Als speler beweegt
+                    //{
+                    StartCoroutine(ChangeBack(h.collider.GetComponentInChildren<Renderer>().materials[i], 5f));
+                    //}
+
                 }
 
             }

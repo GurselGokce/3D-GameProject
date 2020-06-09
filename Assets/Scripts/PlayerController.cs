@@ -93,9 +93,9 @@ public class PlayerController : MonoBehaviour
         //animator.SetInteger("condition2", (int)Input.GetAxis("Horizontal"));
         //animator.SetFloat("horizontale", Input.GetAxis("Horizontal"));
 
-        //LineRenderer lineRenderer = GetComponent<LineRenderer>();
-        //lineRenderer.useWorldSpace = false;
-        //lineRenderer.positionCount = 2;
+        LineRenderer lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.useWorldSpace = false;
+        lineRenderer.positionCount = 2;
 
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour
             targetRotation.x = 0;
             targetRotation.z = 0;
             rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, 7f * Time.deltaTime);
-            //lineRenderer.SetPosition(1, new Vector3(0, 0, hitDist));
+            lineRenderer.SetPosition(1, new Vector3(0, 0, hitDist));
         }
 
 
