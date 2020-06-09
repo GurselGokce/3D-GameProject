@@ -7,6 +7,7 @@ public class Item : ScriptableObject
     public Sprite icon = null;
     public bool DefaultItem = false;
 
+    public GameObject pfItemWorld;
 
     public virtual void Use()
     {
