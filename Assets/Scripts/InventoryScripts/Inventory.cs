@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-
+    public GameObject player;
     public static Inventory instance; //Singleton Pattern
+    //public Item[] items = new Item[20];
+    public GameObject[] removedItems = new GameObject[20];
 
     void Awake()
     {
@@ -47,7 +49,30 @@ public class Inventory : MonoBehaviour
 
     public void Remove(Item item)
     {
+        GameObject currentItem;
+
+        //currentItem = Instantiate(item, player.transform.position,Quaternion.identity);
+        //currentItem.position = 
+        //removedItems[0] = item;
+
+        //currentItem = Instantiate(removedItems[0], player.transform.position, Quaternion.identity);
+        //currentItem.transform.position = player.transform.position;
+
         items.Remove(item);
+
+        //for (int i = 0; i < 1; i++)
+        //{
+        //    if (items[i] == item)
+        //    {
+
+
+        //        if(items[i] == null)
+        //        {
+
+        //        }
+        //    }
+        //}
+
 
         if (onItemChangeCall != null)
         {

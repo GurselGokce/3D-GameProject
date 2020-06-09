@@ -15,7 +15,7 @@ public class CameraControl : MonoBehaviour
 
     public Vector3 offset;
 
-    
+
     public float zoomSpeed = 4f;
     public float minZoom = 5f;
     public float maxZoom = 15f;
@@ -25,7 +25,7 @@ public class CameraControl : MonoBehaviour
     public float pitch = 2f;
     Material[] matts;
 
-    string[] NoGoTags = { "Player", "Floor", "Enemy", "Item"};
+    string[] NoGoTags = { "Player", "Floor", "Enemy", "Item" };
 
     Vector3 oldLocation = new Vector3(0, 0, 0);
 
@@ -33,30 +33,29 @@ public class CameraControl : MonoBehaviour
     //Vector3 dir;
     //private RaycastHit hitInfo;
     //LayerMask _layermask;
-    public float camMin = 0f;
-    public float camPlus = 0f;
+
+
+    private GameObject hitObject;
+    RaycastHit oldHit = new RaycastHit();
+
+
+    private void Start()
+    {
+
+    }
 
     void Update()
     {
 
-        Vector3 cameraDir = new Vector3(0, camPlus, camMin);
+
         float distToCamera = Vector3.Distance(transform.position, target.transform.position);
-        //Debug.DrawRay(target.transform.position, transform.position+transform.forward);
         Vector3 dirToCamera = transform.position - target.transform.position;
-        float radius = 2f;
-
-        //RaycastHit[] hitsz = hitsz = Physics.RaycastAll(transform.position,transform.forward, 50f);
-        //Vector3 dCam =  transform.position, target.transform.position);
-
-
-
-        //RaycastHit[] hits = Physics.SphereCastAll(/*target.transform.position - new Vector3(0f, 4f, 0f)*/target.transform.position, radius, dirToCamera/*dirToCamera-new Vector3(0,2,2)*/, distToCamera);
-        //Debug.Log(/*dirToCamera - new Vector3(0, 2, 2)*/target.transform.position-cameraDir);
         RaycastHit[] hits = Physics.RaycastAll(target.transform.position, dirToCamera, distToCamera);
 
 
 
 
+        //Debug.Log(oldHit.collider);
 
         foreach (RaycastHit h in hits)
         {
@@ -67,23 +66,39 @@ public class CameraControl : MonoBehaviour
             }
             else if (h.collider.GetComponent<Renderer>() != null)
             {
-                Debug.Log(h.collider.GetComponent<Renderer>().material);
-                matts = h.collider.GetComponentInChildren<Renderer>().materials;
-                //oldLocation = target.transform.position;
-                for (var i = 0; i < h.collider.GetComponentInChildren<Renderer>().materials.Length; i++)
+
+                //Debug.Log(h.collider.GetComponent<Renderer>().material);
+                //matts = h.collider.GetComponentInChildren<Renderer>().materials;
+                //for (var i = 0; i < h.collider.GetComponentInChildren<Renderer>().materials.Length; i++)
+                //{
+                //    MaterialExtensions.ToFadeMode(h.collider.GetComponentInChildren<Renderer>().materials[i]);
+                //    tempcolor = h.collider.GetComponentInChildren<Renderer>().materials[i].color;
+                //    tempcolor.a = .15f;
+                //    h.collider.GetComponentInChildren<Renderer>().materials[i].color = tempcolor;
+                //}
+
+                if (oldHit.collider == null)
                 {
-                    MaterialExtensions.ToFadeMode(h.collider.GetComponentInChildren<Renderer>().materials[i]);
-
-                    tempcolor = h.collider.GetComponentInChildren<Renderer>().materials[i].color;
-                    tempcolor.a = .15f;
-                    h.collider.GetComponentInChildren<Renderer>().materials[i].color = tempcolor;
-
-                    //if (target.transform.position != oldLocation) //Als speler beweegt
-                    //{
-                    StartCoroutine(ChangeBack(h.collider.GetComponentInChildren<Renderer>().materials[i], 2f));
-                    //}
-
+                    oldHit = h;
                 }
+                if (oldHit.transform.gameObject.GetInstanceID() == h.transform.gameObject.GetInstanceID())
+                {
+                    for (var i = 0; i < h.collider.GetComponentInChildren<Renderer>().materials.Length; i++)
+                    {
+                        MaterialExtensions.ToFadeMode(oldHit.collider.GetComponentInChildren<Renderer>().materials[i]);
+                        tempcolor = oldHit.collider.GetComponentInChildren<Renderer>().materials[i].color;
+                        tempcolor.a = .15f;
+                        oldHit.collider.GetComponentInChildren<Renderer>().materials[i].color = tempcolor;
+                    }
+                }
+                else
+                {
+                    for (var j = 0; j < oldHit.collider.GetComponentInChildren<Renderer>().materials.Length; j++)
+                    {
+                        StartCoroutine(ChangeBack(oldHit.collider.GetComponentInChildren<Renderer>().materials[j], 5f));
+                    }
+                }
+                oldHit = h;
 
             }
 
@@ -97,34 +112,18 @@ public class CameraControl : MonoBehaviour
     }
 
 
-     IEnumerator ChangeBack(Material material, float delayTime)
+    IEnumerator ChangeBack(Material material, float delayTime)
     {
+
         yield return new WaitForSeconds(delayTime);
         MaterialExtensions.ToOpaqueMode(material);
+
     }
 
     void LateUpdate()
     {
-        //Vector2 rotation = transform.eulerAngles;
-
-
-
         transform.position = target.position - offset * currentZoom;
-
-
-        //rotation.y += Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime; // Left Right, A & D keys
-        //transform.rotation = Quaternion.Euler(0, target.transform.rotation.eulerAngles.y, 0);
-
-
         transform.LookAt(target.position + Vector3.up * pitch);
-
-
-
-
-        //transform.localEulerAngles = rotation;
-        //transform.eulerAngles = rotation;
-
-
     }
 
 }
