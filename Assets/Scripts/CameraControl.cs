@@ -33,17 +33,26 @@ public class CameraControl : MonoBehaviour
     //Vector3 dir;
     //private RaycastHit hitInfo;
     //LayerMask _layermask;
+    public float camMin = 0f;
+    public float camPlus = 0f;
 
     void Update()
     {
 
-
+        Vector3 cameraDir = new Vector3(0, camPlus, camMin);
         float distToCamera = Vector3.Distance(transform.position, target.transform.position);
-        Vector3 dirToCamera =transform.position - target.transform.position;
-        //RaycastHit[] hits = hits = Physics.RaycastAll(transform.position,transform.forward, 50f);
+        //Debug.DrawRay(target.transform.position, transform.position+transform.forward);
+        Vector3 dirToCamera = transform.position - target.transform.position;
+        float radius = 2f;
 
+        //RaycastHit[] hitsz = hitsz = Physics.RaycastAll(transform.position,transform.forward, 50f);
+        //Vector3 dCam =  transform.position, target.transform.position);
+
+
+
+        //RaycastHit[] hits = Physics.SphereCastAll(/*target.transform.position - new Vector3(0f, 4f, 0f)*/target.transform.position, radius, dirToCamera/*dirToCamera-new Vector3(0,2,2)*/, distToCamera);
+        //Debug.Log(/*dirToCamera - new Vector3(0, 2, 2)*/target.transform.position-cameraDir);
         RaycastHit[] hits = Physics.RaycastAll(target.transform.position, dirToCamera, distToCamera);
-
 
 
 
@@ -52,10 +61,6 @@ public class CameraControl : MonoBehaviour
         foreach (RaycastHit h in hits)
         {
             Color tempcolor;
-            //if (h.collider.gameObject.tag != "Player" && h.collider.gameObject.tag != "Floor" && h.collider.gameObject.tag != "Enemy" && h.collider.gameObject.tag != "Item" && h.collider.GetComponent<Renderer>() != null)
-            //{
-
-            //}
             if (NoGoTags.Contains(h.collider.gameObject.tag))
             {
 
@@ -75,7 +80,7 @@ public class CameraControl : MonoBehaviour
 
                     //if (target.transform.position != oldLocation) //Als speler beweegt
                     //{
-                    StartCoroutine(ChangeBack(h.collider.GetComponentInChildren<Renderer>().materials[i], 5f));
+                    StartCoroutine(ChangeBack(h.collider.GetComponentInChildren<Renderer>().materials[i], 2f));
                     //}
 
                 }

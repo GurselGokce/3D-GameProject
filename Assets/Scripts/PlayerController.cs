@@ -64,6 +64,8 @@ public class PlayerController : MonoBehaviour
 
         if (rb.velocity.y > 0.1)
         {
+            rb.velocity += Vector3.up * Physics.gravity.y * (2.5f - 1f) * Time.deltaTime;
+
             hasJumped = true;
         }
         if (rb.velocity.y == 0.0)
@@ -72,6 +74,7 @@ public class PlayerController : MonoBehaviour
         }
         if (rb.velocity.y < -0.1)
         {
+            rb.velocity+=Vector3.up * Physics.gravity.y * (2.5f - 1f) *Time.deltaTime;
             isFalling = true;
             
         }
