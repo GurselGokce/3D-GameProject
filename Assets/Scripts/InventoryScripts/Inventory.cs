@@ -51,7 +51,11 @@ public class Inventory : MonoBehaviour
     {
         GameObject currentItem;
 
-        //currentItem = Instantiate(item, player.transform.position,Quaternion.identity);
+
+
+        currentItem = Instantiate(item.pfItemWorld, player.transform.position, Quaternion.identity);
+        currentItem.transform.position = player.transform.position + new Vector3(1,1,1);
+        currentItem.GetComponent<Rigidbody>().AddForce(new Vector3(1,0,1)*5f, ForceMode.Impulse);
         //currentItem.position = 
         //removedItems[0] = item;
 

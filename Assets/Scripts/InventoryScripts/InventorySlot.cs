@@ -8,6 +8,8 @@ public class InventorySlot : MonoBehaviour
     public Image icon;
     Item item;
 
+
+
     public Button removeBtn;
 
     public void AddItem(Item newItem)
