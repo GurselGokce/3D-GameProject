@@ -31,11 +31,12 @@ public class PlayerController : MonoBehaviour
 
 
 
+
     void Start()
     {
         cam = Camera.main;
         move = GetComponent<PlayerMove>();
-        //speed = 1f;
+
         animator = GetComponent<Animator>();
         //Cursor.visible = false;
 
@@ -61,22 +62,31 @@ public class PlayerController : MonoBehaviour
             moveSpeed = 8f;
         }
 
-
         if (rb.velocity.y > 0.1)
         {
             rb.velocity += Vector3.up * Physics.gravity.y * (2.5f - 1f) * Time.deltaTime;
 
             hasJumped = true;
         }
-        if (rb.velocity.y == 0.0)
+        //if (rb.velocity.y == 0.0f)
+        //{
+        //    hasJumped = false;
+        //}
+        RaycastHit hitGround;
+        float distance = 1f;
+        Vector3 d = new Vector3(0, -1);
+        if (Physics.Raycast(transform.position, d, out hitGround, distance)) //Grounded, tekent een raycast onder de speler om te zien of het op de grond zit of niet.
         {
             hasJumped = false;
+            isFalling = false;
         }
-        if (rb.velocity.y < -0.1)
+
+        if (rb.velocity.y < -0.1f)
         {
-            rb.velocity+=Vector3.up * Physics.gravity.y * (2.5f - 1f) *Time.deltaTime;
+
+            rb.velocity+=Vector3.up * Physics.gravity.y * (2f - 1f) *Time.deltaTime;
             isFalling = true;
-            
+
         }
         else
         {
@@ -87,14 +97,6 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(new Vector3(0, jumpHeight, 0), ForceMode.Impulse);
         }
 
-
-
-
-
-        //animator.SetFloat("verticale", Input.GetAxis("Vertical"));
-        //animator.SetInteger("condition", (int)Input.GetAxis("Vertical"));
-        //animator.SetInteger("condition2", (int)Input.GetAxis("Horizontal"));
-        //animator.SetFloat("horizontale", Input.GetAxis("Horizontal"));
 
         LineRenderer lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.useWorldSpace = false;
