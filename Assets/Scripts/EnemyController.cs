@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviour
 
     public float speed = 2f;
     Vector3 playerDirection;
-    float distance;
+    float distance = 15f;
 
     //Vector3 movement = new Vector3(1, 0, 0);
     void Start()
@@ -23,12 +23,15 @@ public class EnemyController : MonoBehaviour
         target = PlayerManager.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        animator.SetBool("Attacking", false);
+        animator.SetBool("Moving", false);
     }
 
     // Update is called once per frame
     void Update()
     {
         distance = Vector3.Distance(target.position, transform.position);
+        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, transform.eulerAngles.z);
 
         if (distance <= lookRadius)
         {
@@ -37,44 +40,48 @@ public class EnemyController : MonoBehaviour
             Quaternion direction = Quaternion.LookRotation(targetPosition - transform.position);
 
             transform.rotation = Quaternion.Slerp(transform.rotation, direction, rotationSpeed * Time.deltaTime);
-            //Setting Rotation along z axis to zero
+
             direction.z = 0;
 
-            //Setting Rotation along x axis to zero
             direction.x = 0;
-            animator.SetBool("Attacking", false);
-            animator.SetBool("Moving", true);
 
-            if (distance < 1)
-            {
-                animator.SetBool("Attacking", true);
-            }
-        }
-        else
-        {
-            animator.SetBool("Moving", false);
+
 
         }
+
 
     }
 
     void FixedUpdate()
     {
+        Debug.Log(distance);
 
-        if (distance <= lookRadius)
+        if (distance <= lookRadius && distance>1.5f)
         {
             moveEnemy(playerDirection);
             animator.SetBool("Attacking", false);
             animator.SetBool("Moving", true);
-            if (distance <= 1)
-            {
-                animator.SetBool("Attacking", true);
-            }
+
         }
-        else
+
+
+        if (distance > lookRadius)
         {
+            //stopEnemy();
             animator.SetBool("Moving", false);
         }
+
+        if (distance < 1.5f)
+        {
+            //stopEnemy();
+            animator.SetBool("Moving", false);
+            animator.SetBool("Attacking", true);
+        }
+        //else
+        //{
+        //    stopEnemy();
+        //    animator.SetBool("Moving", false);
+        //}
 
     }
 
@@ -89,6 +96,12 @@ public class EnemyController : MonoBehaviour
     void moveEnemy(Vector3 direction)
     {
         rb.MovePosition(transform.position + (direction * speed * Time.deltaTime));
+    }
+
+    void stopEnemy()
+    {
+        rb.velocity = Vector3.zero;
+        //rb.MovePosition(new Vector3(0,0,0));
     }
 
 }
