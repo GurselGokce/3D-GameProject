@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     Transform target;
     NavMeshAgent agent;
     public Rigidbody rb;
+    Animator animator;
 
     public float speed = 2f;
     Vector3 playerDirection;
@@ -21,6 +22,7 @@ public class EnemyController : MonoBehaviour
     {
         target = PlayerManager.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -40,9 +42,17 @@ public class EnemyController : MonoBehaviour
 
             //Setting Rotation along x axis to zero
             direction.x = 0;
+            animator.SetBool("Attacking", false);
+            animator.SetBool("Moving", true);
+
+            if (distance < 1)
+            {
+                animator.SetBool("Attacking", true);
+            }
         }
         else
         {
+            animator.SetBool("Moving", false);
 
         }
 
@@ -54,10 +64,16 @@ public class EnemyController : MonoBehaviour
         if (distance <= lookRadius)
         {
             moveEnemy(playerDirection);
+            animator.SetBool("Attacking", false);
+            animator.SetBool("Moving", true);
+            if (distance <= 1)
+            {
+                animator.SetBool("Attacking", true);
+            }
         }
         else
         {
-
+            animator.SetBool("Moving", false);
         }
 
     }
