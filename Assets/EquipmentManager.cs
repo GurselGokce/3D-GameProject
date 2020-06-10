@@ -18,9 +18,11 @@ public class EquipmentManager : MonoBehaviour
 
     public Equipment[] currentEq;
     Inventory inventory;
+    public GameObject instructions;
 
     public void Start()
     {
+
         inventory = Inventory.instance;
         int numSlots = System.Enum.GetNames(typeof(EquipmentSlot)).Length; //Array lengte van Enum
         currentEq = new Equipment[numSlots];
@@ -28,6 +30,7 @@ public class EquipmentManager : MonoBehaviour
 
     public void Equip(Equipment newItem)
     {
+        var x = instructions.GetComponentInChildren<UnityEngine.UI.Text>();
         int slotIndex = (int)newItem.equipmentSlot;
 
         Equipment oldItem = null;
@@ -42,12 +45,17 @@ public class EquipmentManager : MonoBehaviour
         {
             onEquipmentChanged.Invoke(newItem, oldItem);
         }
+        Debug.Log("Called");
 
         currentEq[slotIndex] = newItem;
+        x.text = $"{currentEq[slotIndex].name} Equipped,\n Damage: {currentEq[slotIndex].damage}, Speed: {1/currentEq[slotIndex].shootSpeed} Fire Rate";
+        instructions.SetActive(true);
+        StartCoroutine(InstructionsDelay(2));
     }
 
     public void Unequip(int slotIndex)
     {
+        var x = instructions.GetComponentInChildren<UnityEngine.UI.Text>();
         if (currentEq[slotIndex] != null)
         {
             Equipment oldItem = currentEq[slotIndex];
@@ -59,6 +67,10 @@ public class EquipmentManager : MonoBehaviour
             }
 
         }
+
+        x.text = $"All Unequipped,\n Damage: {0}, Speed: {1 / 0.5} Fire Rate";
+        instructions.SetActive(true);
+        StartCoroutine(InstructionsDelay(2));
     }
 
     public void UneqAll()
@@ -75,6 +87,12 @@ public class EquipmentManager : MonoBehaviour
         {
             UneqAll();
         }
+    }
+
+    IEnumerator InstructionsDelay(float del)
+    {
+        yield return new WaitForSeconds(del);
+        instructions.SetActive(false);
     }
 
 }

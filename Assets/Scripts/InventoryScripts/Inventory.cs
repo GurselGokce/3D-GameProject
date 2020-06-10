@@ -22,7 +22,7 @@ public class Inventory : MonoBehaviour
     public delegate void OnItemChange();
     public OnItemChange onItemChangeCall;
 
-    public int limitedSpace = 5;
+    public int limitedSpace = 20;
 
     public List<Item> items = new List<Item>();
 

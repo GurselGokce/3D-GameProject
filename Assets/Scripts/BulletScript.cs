@@ -8,7 +8,7 @@ public class BulletScript : MonoBehaviour
 
     public float TimeToLive = 5f;
 
-    public LayerMask enemyLayers;
+    //public LayerMask enemyLayers;
 
     public float mSpeed = 10.0f;
 
@@ -37,7 +37,7 @@ public class BulletScript : MonoBehaviour
             Destroy(effect, 0.5f); //Effect gaat weg na 5 seconde
 
             //Verander name naar tag
-            if(hit.collider.gameObject.tag != "Enemy") //Bullets only destroy when hitting other objects, making it possible to hit multiple enemies.
+            if(hit.collider.gameObject.tag != "Enemy" && hit.collider.gameObject.tag != "Door") //Bullets only destroy when hitting other objects, making it possible to hit multiple enemies or through doors.
             {
                 Destroy(gameObject);
             }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ca56806ec65b3a499b25e335a37282d, type: 3}
   m_Name: SpeedWeapon
   m_EditorClassIdentifier: 
-  name: Item
+  name: SpeedWeapon
   icon: {fileID: 21300000, guid: de37d82014431474dabcec89f07e2fe0, type: 3}
   DefaultItem: 0
   pfItemWorld: {fileID: 6590426676694968105, guid: ef6ee9345f09c3f44afbbc4b10581482,
