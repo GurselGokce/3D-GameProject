@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
     Transform target;
     NavMeshAgent agent;
     public Rigidbody rb;
-    public Rigidbody2D rbb;
+
     public float speed = 2f;
     Vector3 playerDirection;
     float distance;
