@@ -6,11 +6,17 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float lookRadius = 10f;
+    public float lookRadius = 0.1f;
+    public float rotationSpeed = 4f;
     Transform target;
     NavMeshAgent agent;
     public Rigidbody rb;
+    public Rigidbody2D rbb;
     public float speed = 2f;
+    Vector3 playerDirection;
+    float distance;
+
+    //Vector3 movement = new Vector3(1, 0, 0);
     void Start()
     {
         target = PlayerManager.instance.player.transform;
@@ -20,28 +26,53 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float distance = Vector3.Distance(target.position, transform.position);
+        distance = Vector3.Distance(target.position, transform.position);
 
-        if(distance <= lookRadius)
+        if (distance <= lookRadius)
         {
-            //agent.SetDestination(target.position);
-            rb.MovePosition(target.position * speed *Time.deltaTime);
-            if (distance <= agent.stoppingDistance)
-            {
-                //atack
-                FaceTarget();
-            }
+            playerDirection = target.position - transform.position;
+            Vector3 targetPosition = target.transform.position;
+            Quaternion direction = Quaternion.LookRotation(target.position - transform.position);
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, direction, rotationSpeed * Time.deltaTime);
+            // Setting Rotation along z axis to zero
+            direction.z = 0;
+
+            // Setting Rotation along x axis to zero
+            direction.x = 0;
         }
+        else
+        {
+
+        }
+
     }
-    void FaceTarget()
+
+    void FixedUpdate()
     {
-        Vector3 direction = (target.position - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);   
+
+        if (distance <= lookRadius)
+        {
+            moveEnemy(playerDirection);
+        }
+        else
+        {
+
+        }
+       
     }
-    void OnDrawGizmosSelected()
+
+    void OnDrawGizmosSelected(Vector3 direction)
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
+       
+
     }
+
+    void moveEnemy(Vector3 direction)
+    {
+        rb.MovePosition(transform.position + (playerDirection * speed * Time.deltaTime));
+    }
+
 }
