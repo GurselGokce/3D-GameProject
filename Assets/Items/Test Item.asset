@@ -15,5 +15,5 @@ MonoBehaviour:
   name: Weapon
   icon: {fileID: 21300000, guid: ca91e905710531e4f808ad1cd4341069, type: 3}
   DefaultItem: 0
-  pfItemWorld: {fileID: 3491955061183707048, guid: 297cef95c22f16a4e9b0c592a7ebc71c,
+  pfItemWorld: {fileID: 6810394590797500820, guid: 28f63d71e6ca6a44281394ab8bfc7685,
     type: 3}

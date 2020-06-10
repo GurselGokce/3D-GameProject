@@ -9,12 +9,19 @@ public class Item : ScriptableObject
 
     public GameObject pfItemWorld;
 
+    public void RemoveFromInventory()
+    {
+        Inventory.instance.Equip(this);
+    }
+
     public virtual void Use()
     {
         //use item
 
         Debug.Log("Using " + name);
     }
+
+    
 
 
 }
