@@ -32,13 +32,13 @@ public class EnemyController : MonoBehaviour
         {
             playerDirection = target.position - transform.position;
             Vector3 targetPosition = target.transform.position;
-            Quaternion direction = Quaternion.LookRotation(target.position - transform.position);
+            Quaternion direction = Quaternion.LookRotation(targetPosition - transform.position);
 
             transform.rotation = Quaternion.Slerp(transform.rotation, direction, rotationSpeed * Time.deltaTime);
-            // Setting Rotation along z axis to zero
+            //Setting Rotation along z axis to zero
             direction.z = 0;
 
-            // Setting Rotation along x axis to zero
+            //Setting Rotation along x axis to zero
             direction.x = 0;
         }
         else
@@ -59,20 +59,20 @@ public class EnemyController : MonoBehaviour
         {
 
         }
-       
+
     }
 
     void OnDrawGizmosSelected(Vector3 direction)
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
-       
+
 
     }
 
     void moveEnemy(Vector3 direction)
     {
-        rb.MovePosition(transform.position + (playerDirection * speed * Time.deltaTime));
+        rb.MovePosition(transform.position + (direction * speed * Time.deltaTime));
     }
 
 }
