@@ -25,7 +25,9 @@ public class Door : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && (deurActivated))
         {
             print("Level2");
-            //SceneManager.LoadScene("Level2");
+            deurActivated = false;
+            SceneManager.LoadScene("Level2");
+            
         }
 
     }
