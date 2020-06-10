@@ -7,6 +7,7 @@ public class Slidingdoor : MonoBehaviour
     // Start is called before the first frame update
     public GameObject trigger;
     public GameObject door;
+    public GameObject instructions;
 
     Animator anim;
     void Start()
@@ -15,10 +16,11 @@ public class Slidingdoor : MonoBehaviour
     }
 
     void OnTriggerStay(Collider collider)
-    {
+    {   
         Debug.Log("deur");
         if (collider.gameObject.tag == "Player")
         {
+            instructions.SetActive(true);
             //Animator anim = collider.GetComponentInChildren<Animator>();
             Debug.Log("ik ben bij de deur");
             if (Input.GetKeyDown(KeyCode.E))
@@ -27,6 +29,13 @@ public class Slidingdoor : MonoBehaviour
                 anim.SetTrigger("OpenClose");
             }
                 
+        }
+    }
+    void OnTriggerExit(Collider collider)
+    {
+        if (collider.gameObject.tag == "Player")
+        {
+            instructions.SetActive(false);
         }
     }
 
