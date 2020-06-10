@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6590426676694968105
+--- !u!1 &428749224133897712
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6590426676695333641}
-  - component: {fileID: 6590426676694006569}
-  - component: {fileID: 6590426676693039593}
-  - component: {fileID: 3142846931582814153}
-  - component: {fileID: 1210319389}
-  - component: {fileID: 1210319388}
+  - component: {fileID: 428749224134193616}
+  - component: {fileID: 428749224130802160}
+  - component: {fileID: 428749224131900208}
+  - component: {fileID: 8438476458207956240}
+  - component: {fileID: 6811376679898106052}
+  - component: {fileID: 6811376679898106053}
   m_Layer: 0
-  m_Name: SciFiRifle
+  m_Name: DamageWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6590426676695333641
+--- !u!4 &428749224134193616
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6590426676694968105}
-  m_LocalRotation: {x: 0.031069666, y: -0.08160315, z: 0.02154051, w: 0.9959476}
-  m_LocalPosition: {x: 0.12, y: 1.439, z: 0.108}
+  m_GameObject: {fileID: 428749224133897712}
+  m_LocalRotation: {x: 0.03106939, y: -0.081599064, z: 0.02154082, w: 0.995948}
+  m_LocalPosition: {x: -2.41, y: 2.34, z: 22.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 3.7500002, y: -9.297001, z: 2.173}
---- !u!33 &6590426676694006569
+--- !u!33 &428749224130802160
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6590426676694968105}
+  m_GameObject: {fileID: 428749224133897712}
   m_Mesh: {fileID: 4300000, guid: 3b75f92e50d992c419ddce3ad37c997a, type: 3}
---- !u!23 &6590426676693039593
+--- !u!23 &428749224131900208
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6590426676694968105}
+  m_GameObject: {fileID: 428749224133897712}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -82,28 +82,28 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &3142846931582814153
+--- !u!114 &8438476458207956240
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6590426676694968105}
+  m_GameObject: {fileID: 428749224133897712}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1ebcf376c3b4594fbd157b3ea91d50b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 1.74
-  InteractionTransform: {fileID: 6590426676695333641}
-  item: {fileID: 11400000, guid: 0b74fc46238f4484aa58b3cb62bc0f72, type: 2}
---- !u!54 &1210319389
+  InteractionTransform: {fileID: 428749224134193616}
+  item: {fileID: 11400000, guid: 2f7006e148c7c354f96ed46ae21f51f7, type: 2}
+--- !u!54 &6811376679898106052
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6590426676694968105}
+  m_GameObject: {fileID: 428749224133897712}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -113,13 +113,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &1210319388
+--- !u!65 &6811376679898106053
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6590426676694968105}
+  m_GameObject: {fileID: 428749224133897712}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1

@@ -47,6 +47,17 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
+    public void Equip(Item item)
+    {
+        items.Remove(item);
+
+        if (onItemChangeCall != null)
+        {
+            onItemChangeCall.Invoke();
+        }
+
+    }
+
     public void Remove(Item item)
     {
         GameObject currentItem;
@@ -54,29 +65,9 @@ public class Inventory : MonoBehaviour
 
 
         currentItem = Instantiate(item.pfItemWorld, player.transform.position, Quaternion.identity);
-        currentItem.transform.position = player.transform.position + new Vector3(1,1,1);
+        currentItem.transform.position = player.transform.position + new Vector3(1,0,1);
         currentItem.GetComponent<Rigidbody>().AddForce(new Vector3(1,0,1)*5f, ForceMode.Impulse);
-        //currentItem.position = 
-        //removedItems[0] = item;
-
-        //currentItem = Instantiate(removedItems[0], player.transform.position, Quaternion.identity);
-        //currentItem.transform.position = player.transform.position;
-
         items.Remove(item);
-
-        //for (int i = 0; i < 1; i++)
-        //{
-        //    if (items[i] == item)
-        //    {
-
-
-        //        if(items[i] == null)
-        //        {
-
-        //        }
-        //    }
-        //}
-
 
         if (onItemChangeCall != null)
         {
