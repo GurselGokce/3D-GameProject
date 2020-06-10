@@ -2943,6 +2943,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1461504648163160, guid: 79298396da72aeb4a9dbe792d38ccf1f, type: 3}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
     - target: {fileID: 4429141941954370, guid: 79298396da72aeb4a9dbe792d38ccf1f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 105.23187
@@ -55013,6 +55017,80 @@ MonoBehaviour:
   moveSpeed: 8
   jumpHeight: 7
   rb: {fileID: 6182525237529648079}
+--- !u!1001 &466942543398610527
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 883440845964265311, guid: 9b6a1986e52facb498bb992bb65c26ab,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 883440845964265311, guid: 9b6a1986e52facb498bb992bb65c26ab,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 883440845964265311, guid: 9b6a1986e52facb498bb992bb65c26ab,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 883440845964265311, guid: 9b6a1986e52facb498bb992bb65c26ab,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 883440845964265311, guid: 9b6a1986e52facb498bb992bb65c26ab,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 883440845964265311, guid: 9b6a1986e52facb498bb992bb65c26ab,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 883440845964265311, guid: 9b6a1986e52facb498bb992bb65c26ab,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 883440845964265311, guid: 9b6a1986e52facb498bb992bb65c26ab,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 883440845964265311, guid: 9b6a1986e52facb498bb992bb65c26ab,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 883440845964265311, guid: 9b6a1986e52facb498bb992bb65c26ab,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 883440845964265311, guid: 9b6a1986e52facb498bb992bb65c26ab,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4186594053276808524, guid: 9b6a1986e52facb498bb992bb65c26ab,
+        type: 3}
+      propertyPath: m_Name
+      value: keycard
+      objectReference: {fileID: 0}
+    - target: {fileID: 4186594053276808524, guid: 9b6a1986e52facb498bb992bb65c26ab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Item
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9b6a1986e52facb498bb992bb65c26ab, type: 3}
 --- !u!114 &483974957827159495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55185,7 +55263,7 @@ PrefabInstance:
     - target: {fileID: 6590426676695333641, guid: ef6ee9345f09c3f44afbbc4b10581482,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6590426676695333641, guid: ef6ee9345f09c3f44afbbc4b10581482,
         type: 3}
@@ -55819,7 +55897,7 @@ PrefabInstance:
     - target: {fileID: 428749224134193616, guid: 020e78738f9dc88439268db3d7a831a8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 428749224134193616, guid: 020e78738f9dc88439268db3d7a831a8,
         type: 3}

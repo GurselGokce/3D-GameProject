@@ -15,15 +15,33 @@ public class Shooting : MonoBehaviour
     public AudioSource shootSFX;
 
     //public float bulletForce = 20f;
+    public GameObject gameManager;
+    public EquipmentManager EquipmentList;
+    private void Start()
+    {
+        gameManager = GameObject.Find("GameManager");
+        EquipmentList = gameManager.GetComponent<EquipmentManager>();
+
+    }
 
 
     // Update is called once per frame
     void Update()
     {
-        if (EventSystem.current.IsPointerOverGameObject())
+        if (EventSystem.current.IsPointerOverGameObject()) //Je kan niet schieten als jouw muis over inventory is
         {
             return;
         }
+        //Debug.Log(EquipmentList.currentEq[0]);
+        if (EquipmentList.currentEq[0] != null)
+        {
+            shootDelay = EquipmentList.currentEq[0].shootSpeed;
+        }
+        else
+        {
+            shootDelay = 0.5f; //Default shoot snelheid
+        }
+
 
         if (Input.GetButton("Fire1") && shoot)
         {
@@ -37,7 +55,6 @@ public class Shooting : MonoBehaviour
     {
         yield return new WaitForSeconds(shootDelay);
         shoot = true;
-
     }
 
     void Shoot()

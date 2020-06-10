@@ -25,9 +25,8 @@ public class CameraControl : MonoBehaviour
     public float pitch = 2f;
     Material[] matts;
 
-    string[] NoGoTags = { "Player", "Floor", "Enemy", "Item" };
+    string[] NoGoTags = { "Player", "Floor", "Enemy", "Item"};
 
-    Vector3 oldLocation = new Vector3(0, 0, 0);
 
 
     //Vector3 dir;
@@ -51,11 +50,9 @@ public class CameraControl : MonoBehaviour
         float distToCamera = Vector3.Distance(transform.position, target.transform.position);
         Vector3 dirToCamera = transform.position - target.transform.position;
         RaycastHit[] hits = Physics.RaycastAll(target.transform.position, dirToCamera, distToCamera);
-
-
-
-
-        //Debug.Log(oldHit.collider);
+        
+        //float radius = 1f;
+        //RaycastHit[] hits = Physics.SphereCastAll(target.transform.position, radius, dirToCamera, distToCamera);
 
         foreach (RaycastHit h in hits)
         {
@@ -67,15 +64,6 @@ public class CameraControl : MonoBehaviour
             else if (h.collider.GetComponent<Renderer>() != null)
             {
 
-                //Debug.Log(h.collider.GetComponent<Renderer>().material);
-                //matts = h.collider.GetComponentInChildren<Renderer>().materials;
-                //for (var i = 0; i < h.collider.GetComponentInChildren<Renderer>().materials.Length; i++)
-                //{
-                //    MaterialExtensions.ToFadeMode(h.collider.GetComponentInChildren<Renderer>().materials[i]);
-                //    tempcolor = h.collider.GetComponentInChildren<Renderer>().materials[i].color;
-                //    tempcolor.a = .15f;
-                //    h.collider.GetComponentInChildren<Renderer>().materials[i].color = tempcolor;
-                //}
 
                 if (oldHit.collider == null)
                 {

@@ -6,11 +6,11 @@ public class Equipment : Item
 {
     public EquipmentSlot equipmentSlot;
 
-    public int armor;
+    public float armor;
 
-    public int damage;
+    public float damage;
 
-    public int shootSpeed;
+    public float shootSpeed;
 
     public override void Use()
     {
