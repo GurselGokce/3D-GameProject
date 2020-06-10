@@ -25,8 +25,17 @@ public class Player : MonoBehaviour
 			TakeDamage(20);
 		}
 	}
+    void OnCollisionEnter(Collision collision)
+    {
+        
+        if (collision.gameObject.tag == "Enemy")
+        {
+			Debug.Log("takedamage");
+			TakeDamage(20);
+		}
+    }
 
-	void TakeDamage(int damage)
+    void TakeDamage(int damage)
 	{
 		currentHealth -= damage;
 

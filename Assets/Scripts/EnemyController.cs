@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float lookRadius = 0.1f;
+    public float lookRadius = 100f;
     public float rotationSpeed = 4f;
     Transform target;
     NavMeshAgent agent;
