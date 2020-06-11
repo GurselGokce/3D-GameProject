@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 2654383658677808212}
   - component: {fileID: 2654383658677808213}
   - component: {fileID: 2654383658677808214}
-  - component: {fileID: 2654383658677808168}
-  - component: {fileID: 2654383658677808169}
   - component: {fileID: 2654383658677808175}
   m_Layer: 0
   m_Name: Enemy
@@ -106,37 +104,7 @@ MonoBehaviour:
   rotationSpeed: 4
   rb: {fileID: 2654383658677808213}
   speed: 2
---- !u!114 &2654383658677808168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2654383658677808215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94523c612357ab34eb070701e99059e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 3
-  interactionTransform: {fileID: 2654383658677808170}
---- !u!114 &2654383658677808169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2654383658677808215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6348051b240d9fa4cb4024d9efa490d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  damage:
-    baseValue: 0
-  armor:
-    baseValue: 0
+  attackRange: 0.8
 --- !u!95 &2654383658677808175
 Animator:
   serializedVersion: 3

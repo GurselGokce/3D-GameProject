@@ -45,9 +45,6 @@ public class EnemyController : MonoBehaviour
             direction.z = 0;
 
             direction.x = 0;
-
-
-
         }
 
 
@@ -61,7 +58,6 @@ public class EnemyController : MonoBehaviour
             moveEnemy(playerDirection);
             animator.SetBool("Attacking", false);
             animator.SetBool("Moving", true);
-
         }
 
 
@@ -72,7 +68,6 @@ public class EnemyController : MonoBehaviour
 
         if (distance < 1.5f)
         {
-
             animator.SetBool("Moving", false);
             animator.SetBool("Attacking", true);
         }
