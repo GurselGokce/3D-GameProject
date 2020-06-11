@@ -17,15 +17,14 @@ public class Slidingdoor : MonoBehaviour
 
     void OnTriggerStay(Collider collider)
     {   
-        Debug.Log("deur");
         if (collider.gameObject.tag == "Player")
         {
             instructions.SetActive(true);
             //Animator anim = collider.GetComponentInChildren<Animator>();
-            Debug.Log("ik ben bij de deur");
+            
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("OpenClose");
+                
                 anim.SetTrigger("OpenClose");
             }
                 
