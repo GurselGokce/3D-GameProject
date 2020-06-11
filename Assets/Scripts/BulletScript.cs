@@ -32,11 +32,9 @@ public class BulletScript : MonoBehaviour
 
         foreach (var hit in hits)
         {
-            //Debug.Log(hit.collider.gameObject.name);
             GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-            Destroy(effect, 0.5f); //Effect gaat weg na 5 seconde
+            Destroy(effect, 0.5f); 
 
-            //Verander name naar tag
             if(hit.collider.gameObject.tag != "Door") //Bullets only destroy when hitting objects other than doors, making it possible to hit enemies through doors.
             {
                 Destroy(gameObject);
@@ -48,8 +46,6 @@ public class BulletScript : MonoBehaviour
                 gameManager.GetComponent<SpawnEnemies>().enemyCount -= 1;
 
             }
-
-            //Destroy(gameObject); //Bullets gaan weg na collisie
 
         }
 

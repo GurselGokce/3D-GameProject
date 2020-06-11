@@ -171,7 +171,7 @@ public class PlayerController : MonoBehaviour
         float rightLeftMagnitude = 0;
         if (axisVector.magnitude > 0)
         {
-            Vector3 normalizedLookingAt = /*lookedAtPoint -*/targetPoint - transform.position;
+            Vector3 normalizedLookingAt = targetPoint - transform.position;
             normalizedLookingAt.Normalize();
             forwardBackwardsMagnitude = Mathf.Clamp(
                     Vector3.Dot(axisVector, normalizedLookingAt), -1, 1
@@ -191,8 +191,6 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("IsMoving", false);
         }
-
-        // update the animator parameters
         animator.SetFloat("Forward", forwardBackwardsMagnitude);
         animator.SetFloat("Right", rightLeftMagnitude);
     }

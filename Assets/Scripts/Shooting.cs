@@ -61,8 +61,6 @@ public class Shooting : MonoBehaviour
     {
 
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Rigidbody rb = bullet.GetComponent<Rigidbody>();
-        //rb.AddForce(firePoint.forward * bulletForce, ForceMode.Impulse);
         shoot = false;
         StartCoroutine(ShootDelay());
 
