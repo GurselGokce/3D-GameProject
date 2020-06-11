@@ -101,7 +101,7 @@ AnimatorController:
     m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
-    m_Name: a
+    m_Name: Layer
     m_StateMachine: {fileID: 3105215502758742027}
     m_Mask: {fileID: 0}
     m_Motions: []
@@ -109,7 +109,7 @@ AnimatorController:
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
     m_DefaultWeight: 0
-    m_IKPass: 0
+    m_IKPass: 1
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
 --- !u!1101 &477272154582635647
@@ -147,7 +147,7 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: a
+  m_Name: Layer
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 8599765156527423583}
@@ -268,7 +268,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 209b3b18515530d479c9239e8a7f8a34,
+  m_Motion: {fileID: -203655887218126122, guid: 44528cd552078e047b7499d678aa324b,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
