@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
     public float speed = 2f;
     Vector3 playerDirection;
     float distance = 15f;
+    public float attackRange = 0.80f;
 
     //Vector3 movement = new Vector3(1, 0, 0);
     void Start()
@@ -54,9 +55,8 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log(distance);
 
-        if (distance <= lookRadius && distance>1.5f)
+        if (distance <= lookRadius && distance>attackRange)
         {
             moveEnemy(playerDirection);
             animator.SetBool("Attacking", false);
@@ -67,21 +67,16 @@ public class EnemyController : MonoBehaviour
 
         if (distance > lookRadius)
         {
-            //stopEnemy();
             animator.SetBool("Moving", false);
         }
 
         if (distance < 1.5f)
         {
-            //stopEnemy();
+
             animator.SetBool("Moving", false);
             animator.SetBool("Attacking", true);
         }
-        //else
-        //{
-        //    stopEnemy();
-        //    animator.SetBool("Moving", false);
-        //}
+
 
     }
 
@@ -96,12 +91,6 @@ public class EnemyController : MonoBehaviour
     void moveEnemy(Vector3 direction)
     {
         rb.MovePosition(transform.position + (direction * speed * Time.deltaTime));
-    }
-
-    void stopEnemy()
-    {
-        rb.velocity = Vector3.zero;
-        //rb.MovePosition(new Vector3(0,0,0));
     }
 
 }

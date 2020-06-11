@@ -8,7 +8,11 @@ public class MenuScript : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    public void WaveLevel()
+    {
+        SceneManager.LoadScene("Level2");
 
+    }
     public void ExitGame()
     {
         Application.Quit();
