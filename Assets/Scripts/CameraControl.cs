@@ -23,8 +23,6 @@ public class CameraControl : MonoBehaviour
 
     string[] NoGoTags = { "Player", "Floor", "Enemy", "Item"};
 
-
-    private GameObject hitObject;
     RaycastHit oldHit = new RaycastHit();
 
 
@@ -39,6 +37,7 @@ public class CameraControl : MonoBehaviour
 
         float distToCamera = Vector3.Distance(transform.position, target.transform.position);
         Vector3 dirToCamera = transform.position - target.transform.position;
+
         RaycastHit[] hits = Physics.RaycastAll(target.transform.position, dirToCamera, distToCamera);
 
         foreach (RaycastHit h in hits)
