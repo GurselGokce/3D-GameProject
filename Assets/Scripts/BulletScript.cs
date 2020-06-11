@@ -42,7 +42,7 @@ public class BulletScript : MonoBehaviour
             Destroy(effect, 0.5f); //Effect gaat weg na 5 seconde
 
             //Verander name naar tag
-            if(hit.collider.gameObject.tag != "Enemy" && hit.collider.gameObject.tag != "Door") //Bullets only destroy when hitting other objects, making it possible to hit multiple enemies or through doors.
+            if(hit.collider.gameObject.tag != "Door") //Bullets only destroy when hitting objects other than doors, making it possible to hit enemies through doors.
             {
                 Destroy(gameObject);
             }

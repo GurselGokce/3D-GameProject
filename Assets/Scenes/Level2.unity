@@ -49602,7 +49602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  instructions: {fileID: 0}
+  instructions: {fileID: 1496342611}
   healthBar: {fileID: 1072517707}
 --- !u!4 &4550728258386061116
 Transform:

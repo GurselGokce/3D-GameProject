@@ -9,10 +9,26 @@ public class SpawnEnemies : MonoBehaviour
     public int zPos;
     public int enemyCount = 12;
     public int totaal = 15;
+    bool coroutineStarted = false;
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(Respawn());
+        //for (int i = 0; i < 15; i++)
+        //{
+        //    xPos = Random.Range(-20, 20);
+        //    zPos = Random.Range(-3, 3);
+        //    Instantiate(enemy, new Vector3(xPos, 3, zPos), Quaternion.identity);
+        //    //yield return new WaitForSeconds(0.1f);
+        //    enemyCount += 1;
+        //}
 
+
+    }
+    void EnemyDrop()
+    {
+        //while (enemyCount < totaal)
+        //{
         for (int i = 0; i < 15; i++)
         {
             xPos = Random.Range(-20, 20);
@@ -21,18 +37,9 @@ public class SpawnEnemies : MonoBehaviour
             //yield return new WaitForSeconds(0.1f);
             enemyCount += 1;
         }
-    }
-    void EnemyDrop()
-    {
-        while (enemyCount < totaal)
-        {
+        coroutineStarted = false;
 
-            xPos = Random.Range(-20, 20);
-            zPos = Random.Range(-3, 3);
-            Instantiate(enemy, new Vector3(xPos, 3, zPos), Quaternion.identity);
-            //yield return new WaitForSeconds(0.1f);
-            enemyCount += 1;
-        }
+        //}
 
 
 
@@ -41,7 +48,10 @@ public class SpawnEnemies : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(Respawn());
+        if (!coroutineStarted)
+        {
+            StartCoroutine(Respawn());
+        }
         //StartCoroutine(EnemyDrop());
         //if (Input.GetKeyDown(KeyCode.P))
         //{
@@ -52,8 +62,11 @@ public class SpawnEnemies : MonoBehaviour
 
     IEnumerator Respawn()
     {
+        coroutineStarted = true;
         yield return new WaitForSeconds(15f);
         EnemyDrop();
+
+        
         //StartCoroutine(EnemyDrop());
 
     }
