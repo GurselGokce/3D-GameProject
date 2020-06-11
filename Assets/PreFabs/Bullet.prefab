@@ -108,8 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 1876993947241014545, guid: a1dfdeeeafb0ed545ab539b01a9766a3,
     type: 3}
+  gameManager: {fileID: 8879811745459595556, guid: a027f5edebc9205468b25890a826b56a,
+    type: 3}
   TimeToLive: 5
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 0
   mSpeed: 50

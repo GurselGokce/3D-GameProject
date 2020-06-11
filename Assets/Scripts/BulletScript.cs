@@ -6,7 +6,10 @@ public class BulletScript : MonoBehaviour
 {
     public GameObject hitEffect;
 
+    public GameObject gameManager;
+
     public float TimeToLive = 5f;
+    int enemyCount;
 
     //public LayerMask enemyLayers;
 
@@ -19,6 +22,8 @@ public class BulletScript : MonoBehaviour
         mPrevPos = transform.position;
 
         Destroy(gameObject, TimeToLive); //Bullet gaat weg na time to live
+        //enemyCount = gameManager.GetComponent<SpawnEnemies>().enemyCount;
+        Debug.Log(gameManager.GetComponent<SpawnEnemies>().enemyCount);
     }
 
     void Update()
@@ -32,7 +37,7 @@ public class BulletScript : MonoBehaviour
 
         foreach (var hit in hits)
         {
-            Debug.Log(hit.collider.gameObject.name);
+            //Debug.Log(hit.collider.gameObject.name);
             GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(effect, 0.5f); //Effect gaat weg na 5 seconde
 
@@ -41,6 +46,14 @@ public class BulletScript : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+            if (hit.collider.gameObject.tag == "Enemy")
+            {
+
+                Destroy(hit.collider.gameObject);
+                gameManager.GetComponent<SpawnEnemies>().enemyCount -= 1;
+                Debug.Log(gameManager.GetComponent<SpawnEnemies>().enemyCount);
+            }
+
             //Destroy(gameObject); //Bullets gaan weg na collisie
 
         }
