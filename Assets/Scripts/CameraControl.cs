@@ -8,9 +8,6 @@ using System.Linq;
 public class CameraControl : MonoBehaviour
 {
 
-
-    //public float rotationSpeed = 10;
-
     public Transform target;
 
     public Vector3 offset;
@@ -23,15 +20,8 @@ public class CameraControl : MonoBehaviour
     private float currentZoom = 10f;
 
     public float pitch = 2f;
-    Material[] matts;
 
     string[] NoGoTags = { "Player", "Floor", "Enemy", "Item"};
-
-
-
-    //Vector3 dir;
-    //private RaycastHit hitInfo;
-    //LayerMask _layermask;
 
 
     private GameObject hitObject;
@@ -50,9 +40,6 @@ public class CameraControl : MonoBehaviour
         float distToCamera = Vector3.Distance(transform.position, target.transform.position);
         Vector3 dirToCamera = transform.position - target.transform.position;
         RaycastHit[] hits = Physics.RaycastAll(target.transform.position, dirToCamera, distToCamera);
-        
-        //float radius = 1f;
-        //RaycastHit[] hits = Physics.SphereCastAll(target.transform.position, radius, dirToCamera, distToCamera);
 
         foreach (RaycastHit h in hits)
         {
