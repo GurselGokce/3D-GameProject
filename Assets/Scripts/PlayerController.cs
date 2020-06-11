@@ -46,11 +46,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-
         axisVector = new Vector3(
         Input.GetAxis("Horizontal"),
         0, Input.GetAxis("Vertical"
         ));
+
         bool isShiftKeyDown = Input.GetKey(KeyCode.LeftShift);
 
         if ((isShiftKeyDown) && (!hasJumped) && (!isFalling))
@@ -69,10 +69,7 @@ public class PlayerController : MonoBehaviour
 
             hasJumped = true;
         }
-        //if (rb.velocity.y == 0.0f)
-        //{
-        //    hasJumped = false;
-        //}
+
         RaycastHit hitGround;
         float distance = 1f;
         Vector3 d = new Vector3(0, -1);
@@ -162,13 +159,10 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
 
-        rb.MovePosition(rb.position + axisVector * moveSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + axisVector * moveSpeed * Time.deltaTime);
+
         UpdateAnimator();
 
-        //Vector3 lookDir = mousePos - rb.position;
-        //rb.rotation = Quaternion.Slerp(mousePos - rb.position, Vector3.forward);
-        //float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f; // Radiance to degrees
-        //rb.rotation = angle;
     }
 
     private void UpdateAnimator()
