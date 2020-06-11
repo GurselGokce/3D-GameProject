@@ -14,21 +14,9 @@ public class SpawnEnemies : MonoBehaviour
     void Start()
     {
         StartCoroutine(Respawn());
-        //for (int i = 0; i < 15; i++)
-        //{
-        //    xPos = Random.Range(-20, 20);
-        //    zPos = Random.Range(-3, 3);
-        //    Instantiate(enemy, new Vector3(xPos, 3, zPos), Quaternion.identity);
-        //    //yield return new WaitForSeconds(0.1f);
-        //    enemyCount += 1;
-        //}
-
-
     }
     void EnemyDrop()
     {
-        //while (enemyCount < totaal)
-        //{
         for (int i = 0; i < 15; i++)
         {
             xPos = Random.Range(-20, 20);
@@ -38,37 +26,20 @@ public class SpawnEnemies : MonoBehaviour
             enemyCount += 1;
         }
         coroutineStarted = false;
-
-        //}
-
-
-
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!coroutineStarted)
-        {
             StartCoroutine(Respawn());
-        }
-        //StartCoroutine(EnemyDrop());
-        //if (Input.GetKeyDown(KeyCode.P))
-        //{
-        //    enemyCount -= 5;
-        //}
     }
 
 
     IEnumerator Respawn()
     {
         coroutineStarted = true;
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(8f);
         EnemyDrop();
-
-        
-        //StartCoroutine(EnemyDrop());
-
     }
 
 
